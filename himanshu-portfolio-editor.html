@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfolio Studio — Himanshu Sawarni</title>
+<style>
+:root{--bg:#07111f;--panel:#0d1b2d;--panel2:#10243a;--text:#edf5ff;--muted:#9fb0c5;--line:rgba(157,181,211,.18);--cyan:#51e5d4;--blue:#66a5ff;--danger:#ff7184;--shadow:0 20px 55px rgba(0,0,0,.28)}*{box-sizing:border-box}html,body{margin:0;height:100%;font:14px/1.5 Inter,system-ui,sans-serif;color:var(--text);background:var(--bg)}button,input,textarea{font:inherit}.app{height:100%;display:grid;grid-template-columns:minmax(410px,520px) 1fr}.editor{overflow:auto;border-right:1px solid var(--line);background:radial-gradient(circle at 0 0,rgba(81,229,212,.1),transparent 30%),var(--bg)}.top{position:sticky;top:0;z-index:10;padding:18px 22px;border-bottom:1px solid var(--line);background:rgba(7,17,31,.92);backdrop-filter:blur(18px)}.brandrow,.actions,.section-title,.item-head,.previewbar{display:flex;align-items:center;justify-content:space-between;gap:10px}.brand{font-size:20px;font-weight:800;letter-spacing:-.5px}.brand span{color:var(--cyan)}.badge{padding:4px 8px;border:1px solid rgba(81,229,212,.3);border-radius:99px;color:var(--cyan);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.8px}.actions{margin-top:14px;justify-content:flex-start;flex-wrap:wrap}.btn{border:1px solid var(--line);border-radius:10px;padding:9px 12px;color:var(--text);background:var(--panel2);cursor:pointer;font-weight:700}.btn:hover{border-color:var(--cyan)}.btn.primary{border:0;color:#07111f;background:linear-gradient(110deg,var(--cyan),var(--blue))}.btn.danger{color:var(--danger)}.btn.small{padding:6px 9px;font-size:12px}.save-state{margin-left:auto;color:var(--muted);font-size:12px}.content{padding:18px 22px 80px}.notice{padding:12px 14px;margin-bottom:14px;border:1px solid rgba(102,165,255,.25);border-radius:12px;background:rgba(102,165,255,.07);color:var(--muted)}details{margin:0 0 12px;border:1px solid var(--line);border-radius:16px;background:rgba(16,36,58,.65);overflow:hidden}summary{cursor:pointer;padding:15px 16px;font-weight:800;font-size:15px;list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:'＋';float:right;color:var(--cyan)}details[open] summary:after{content:'—'}details[open] summary{border-bottom:1px solid var(--line)}.fields{padding:16px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{margin-bottom:12px}.field:last-child{margin-bottom:0}label{display:block;margin-bottom:5px;color:var(--muted);font-size:12px;font-weight:700}input,textarea{width:100%;padding:10px 11px;border:1px solid var(--line);border-radius:9px;outline:none;background:#091625;color:var(--text)}input:focus,textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(81,229,212,.08)}textarea{min-height:82px;resize:vertical}.repeat{display:grid;gap:10px}.item{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(7,17,31,.55)}.item-head{margin-bottom:10px;font-weight:800}.remove{border:0;background:transparent;color:var(--danger);cursor:pointer;font-weight:800}.add{width:100%;margin-top:10px;border:1px dashed rgba(81,229,212,.4);border-radius:10px;padding:9px;color:var(--cyan);background:rgba(81,229,212,.04);cursor:pointer;font-weight:800}.photo-row{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center}.avatar{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;object-fit:cover;border:2px solid var(--cyan);background:var(--panel2);font-size:22px;font-weight:900}.hint{color:var(--muted);font-size:11px;margin-top:5px}.preview{min-width:0;display:flex;flex-direction:column;background:#e8eef4}.previewbar{height:58px;padding:0 18px;background:#0b1728;border-bottom:1px solid var(--line)}.previewbar strong{font-size:13px}.dots{display:flex;gap:6px}.dots i{width:9px;height:9px;border-radius:50%;background:#ff6b6b}.dots i:nth-child(2){background:#ffd166}.dots i:nth-child(3){background:#51e5d4}.viewport{flex:1;padding:14px;min-height:0}.framewrap{height:100%;overflow:hidden;border-radius:12px;box-shadow:var(--shadow);background:white}iframe{width:100%;height:100%;border:0}.empty{height:100%;display:grid;place-items:center;color:#53677c;text-align:center;padding:30px}@media(max-width:900px){.app{height:auto;grid-template-columns:1fr}.editor{max-height:none;border:0}.preview{height:72vh}.top{position:sticky}.grid2{grid-template-columns:1fr}}@media(max-width:480px){.content,.top{padding-left:14px;padding-right:14px}}
+</style></head>
+<body>
+<!-- Hidden App Container until unlocked -->
+<div class="app" id="appContainer" style="display: none;">
+<aside class="editor"><header class="top"><div class="brandrow"><div class="brand">Portfolio<span>Studio</span></div><div class="badge">Local & private</div></div>
+<div class="actions">
+    <button class="btn primary" id="saveJson">Save to data.json</button>
+    <button class="btn" id="refresh">Refresh Preview</button>
+    <button class="btn danger" id="reset">Discard Draft</button>
+    <button class="btn" id="lockEditor" style="margin-left:auto; background:#1b1220; border-color:#ff7184; color:#ff7184;">Lock Editor</button>
+    <span class="save-state" id="state">Ready</span>
+</div>
+</header><main class="content"><div class="notice">Edit any field and see it update live. Keep this file beside <b>index.html</b> and <b>data.json</b> in a local server environment.</div><form id="form" onsubmit="return false">
+<details open><summary>Profile & display picture</summary><div class="fields"><div class="photo-row"><div id="avatar" class="avatar">HS</div><div><label>Display picture</label><input id="photo" type="file" accept="image/*"><div class="hint">JPG, PNG or WebP. The image is embedded inцвет the downloaded portfolio.</div><button type="button" class="btn small danger" id="clearPhoto" style="margin-top:7px">Remove photo</button></div></div><div class="grid2" style="margin-top:16px"><div class="field"><label>Full name</label><input data-key="name"></div><div class="field"><label>Monogram / initials</label><input data-key="initials" maxlength="4"></div><div class="field"><label>Availability label</label><input data-key="status"></div><div class="field"><label>Location</label><input data-key="location"></div></div><div class="field"><label>Professional introduction</label><textarea data-key="lead"></textarea></div><div class="grid2"><div class="field"><label>GitHub URL</label><input data-key="github" type="url"></div><div class="field"><label>LinkedIn URL</label><input data-key="linkedin" type="url"></div></div></div></details>
+<details><summary>About & key facts</summary><div class="fields"><div class="field"><label>About me</label><textarea data-key="about"></textarea></div><div class="grid2"><div class="field"><label>Based in</label><input data-key="based"></div><div class="field"><label>Focus</label><input data-key="focus"></div><div class="field"><label>Languages</label><input data-key="languages"></div><div class="field"><label>Seeking</label><input data-key="seeking"></div></div></div></details>
+<details><summary>Education</summary><div class="fields"><div class="field"><label>Degree</label><input data-key="degree"></div><div class="field"><label>Institution</label><input data-key="institution"></div><div class="grid2"><div class="field"><label>CGPA</label><input data-key="cgpa"></div><div class="field"><label>Completion / award date</label><input data-key="degreeDate"></div></div><div class="field"><label>Coursework (comma separated)</label><input data-key="coursework"></div></div></details>
+<details><summary>Skills & technologies</summary><div class="fields"><div id="skillsList" class="repeat"></div><button type="button" class="add" data-add="skills">＋ Add skill category</button></div></details>
+<details><summary>Experience</summary><div class="fields"><div id="experienceList" class="repeat"></div><button type="button" class="add" data-add="experience">＋ Add experience</button></div></details>
+<details><summary>Featured project</summary><div class="fields"><div class="field"><label>Project name</label><input data-key="projectName"></div><div class="field"><label>Category / tag line</label><input data-key="projectTag"></div><div class="field"><label>Short description</label><input data-key="projectDescription"></div><div class="field"><label>Highlights (one per line)</label><textarea data-key="projectBullets"></textarea></div><div class="field"><label>Technologies (comma separated)</label><input data-key="projectSkills"></div><div class="grid2"><div class="field"><label>Side metric</label><input data-key="projectMetric"></div><div class="field"><label>Metric explanation</label><input data-key="projectMetricText"></div></div></div></details>
+<details><summary>Achievements & highlights</summary><div class="fields"><div id="achievementsList" class="repeat"></div><button type="button" class="add" data-add="achievements">＋ Add achievement</button></div></details>
+<details><summary>Contact call-to-action</summary><div class="fields"><div class="field"><label>Heading</label><input data-key="contactHeading"></div><div class="field"><label>Message</label><textarea data-key="contactText"></textarea></div></div></details>
+<details><summary>Custom sections</summary><div class="fields"><div class="notice">Add any extra section—certifications, services, publications, hobbies, testimonials, or anything else.</div><div id="customList" class="repeat"></div><button type="button" class="add" data-add="custom">＋ Add custom section</button></div></details>
+</form></main></aside><section class="preview"><div class="previewbar"><div class="dots"><i></i><i></i><i></i></div><strong>Live portfolio preview</strong></div><div class="viewport"><div class="framewrap"><iframe id="frame" src="index.html" title="Portfolio preview"></iframe></div></div></section></div>
+
+<!-- Screen Lock UI Screen -->
+<div id="lockScreen" style="height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; background:var(--bg);">
+    <div style="background:var(--panel); padding:30px; border-radius:16px; border:1px solid var(--line); width:100%; max-width:400px; text-align:center; box-shadow:var(--shadow);">
+        <h2 style="margin-top:0; font-size:22px;">🔒 Editor Locked</h2>
+        <p style="color:var(--muted); font-size:13px; margin-bottom:20px;">Please enter your password to access portfolio studio.</p>
+        <input type="password" id="lockPassword" placeholder="Enter password..." style="margin-bottom:14px;">
+        <button class="btn primary" id="unlockBtn" style="width:100%;">Unlock Editor</button>
+        <p id="lockError" style="color:var(--danger); font-size:12px; margin-top:10px; display:none;">Incorrect password. Try again.</p>
+    </div>
+</div>
+
+<script>
+// --- SCREEN LOCK LOGIC ---
+const CORRECT_PASSWORD = "Sawarni@2003"; // <-- Change this password to whatever you like!
+
+function checkAuth() {
+    if (localStorage.getItem("portfolio_unlocked") === "true") {
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("appContainer").style.display = "grid";
+        initEditorStudio(); // start editor
+    } else {
+        document.getElementById("lockScreen").style.display = "flex";
+        document.getElementById("appContainer").style.display = "none";
+    }
+}
+
+document.getElementById("unlockBtn").addEventListener("click", tryUnlock);
+document.getElementById("lockPassword").addEventListener("keypress", (e) => {
+    if (e.key === "Enter") tryUnlock();
+});
+
+function tryUnlock() {
+    const pwdInput = document.getElementById("lockPassword").value;
+    if (pwdInput === CORRECT_PASSWORD) {
+        localStorage.setItem("portfolio_unlocked", "true");
+        document.getElementById("lockPassword").value = "";
+        document.getElementById("lockError").style.display = "none";
+        checkAuth();
+    } else {
+        document.getElementById("lockError").style.display = "block";
+    }
+}
+
+document.getElementById("lockEditor").addEventListener("click", () => {
+    localStorage.removeItem("portfolio_unlocked");
+    checkAuth();
+});
+
+// Run auth check immediately on page load
+checkAuth();
+
+
+// --- PORTFOLIO EDITOR CORE SCRIPT ---
+function initEditorStudio() {
+    let data = {};
+    const form = document.querySelector('#form'), frame = document.querySelector('#frame'), state = document.querySelector('#state');
+
+    async function init() {
+        try {
+            const res = await fetch('data.json');
+            if (!res.ok) throw new Error("Network response was not ok");
+            const fetchedData = await res.json();
+            
+            const draft = JSON.parse(localStorage.getItem('hs-portfolio-draft'));
+            if (draft && confirm('You have unsaved changes in your browser. Do you want to load the draft instead of the saved data.json?')) {
+                data = draft;
+            } else {
+                data = fetchedData;
+            }
+            fill();
+        } catch (e) {
+            alert("Could not load data.json. Make sure you are running via a local server (e.g., Live Server in VS Code).");
+        }
+    }
+
+    function esc(s='') { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    function values() { document.querySelectorAll('[data-key]').forEach(el => data[el.dataset.key] = el.value); }
+
+    function fill() {
+        document.querySelectorAll('[data-key]').forEach(el => el.value = data[el.dataset.key] ?? '');
+        renderRepeats();
+        showAvatar();
+    }
+
+    function renderRepeats() {
+        document.querySelector('#skillsList').innerHTML = (data.skills || []).map((x,i) => `<div class="item"><div class="item-head">Skill category ${i+1}<button class="remove" data-remove="skills" data-i="${i}">Remove</button></div><div class="grid2"><div><label>Category</label><input data-array="skills" data-i="${i}" data-prop="title" value="${esc(x.title)}"></div><div><label>Skills (comma separated)</label><input data-array="skills" data-i="${i}" data-prop="items" value="${esc(x.items)}"></div></div></div>`).join('');
+        document.querySelector('#experienceList').innerHTML = (data.experience || []).map((x,i) => `<div class="item"><div class="item-head">Experience ${i+1}<button class="remove" data-remove="experience" data-i="${i}">Remove</button></div><div class="grid2"><div><label>Role</label><input data-array="experience" data-i="${i}" data-prop="role" value="${esc(x.role)}"></div><div><label>Company</label><input data-array="experience" data-i="${i}" data-prop="company" value="${esc(x.company)}"></div></div><div class="field"><label>Date</label><input data-array="experience" data-i="${i}" data-prop="date" value="${esc(x.date)}"></div><div><label>Description</label><textarea data-array="experience" data-i="${i}" data-prop="description">${esc(x.description)}</textarea></div></div>`).join('');
+        document.querySelector('#achievementsList').innerHTML = (data.achievements || []).map((x,i) => `<div class="item"><div class="item-head">Highlight ${i+1}<button class="remove" data-remove="achievements" data-i="${i}">Remove</button></div><div class="grid2"><div><label>Type</label><input data-array="achievements" data-i="${i}" data-prop="type" value="${esc(x.type)}"></div><div><label>Title</label><input data-array="achievements" data-i="${i}" data-prop="title" value="${esc(x.title)}"></div></div><div><label>Description</label><input data-array="achievements" data-i="${i}" data-prop="description" value="${esc(x.description)}"></div></div>`).join('');
+        document.querySelector('#customList').innerHTML = (data.custom || []).map((x,i) => `<div class="item"><div class="item-head">Custom section ${i+1}<button class="remove" data-remove="custom" data-i="${i}">Remove</button></div><div class="grid2"><div><label>Eyebrow</label><input data-array="custom" data-i="${i}" data-prop="kicker" value="${esc(x.kicker)}"></div><div><label>Heading</label><input data-array="custom" data-i="${i}" data-prop="title" value="${esc(x.title)}"></div></div><div><label>Content</label><textarea data-array="custom" data-i="${i}" data-prop="content">${esc(x.content)}</textarea></div></div>`).join('');
+    }
+
+    function syncArray(el) { if(el.dataset.array) data[el.dataset.array][+el.dataset.i][el.dataset.prop] = el.value; }
+
+    function showAvatar() {
+        const a = document.querySelector('#avatar');
+        if(data.photo) { a.outerHTML = `<img id="avatar" class="avatar" src="${data.photo}" alt="Preview">`; }
+        else { a.textContent = data.initials || 'HS'; }
+    }
+
+    function apply() {
+        values();
+        localStorage.setItem('hs-portfolio-draft', JSON.stringify(data)); 
+        
+        const doc = frame.contentDocument;
+        if(!doc || !doc.body) return;
+
+        const text = (sel,v) => { const e = doc.querySelector(sel); if(e) e.textContent = v; };
+        const html = (sel,v) => { const e = doc.querySelector(sel); if(e) e.innerHTML = v; };
+        const pills = (sel,csv) => { const e = doc.querySelector(sel); if(e) e.innerHTML = String(csv).split(',').map(s=>s.trim()).filter(Boolean).map(s=>`<span class="pill">${esc(s)}</span>`).join(''); };
+
+        html('.eyebrow', `<span class="dot"></span> ${esc(data.status)}`);
+        text('h1 .grad', data.name+'.');
+        text('.hero .lead', data.lead);
+        text('#location-text', data.location);
+        text('.nav-name', data.initials);
+        text('.footer-name', data.name);
+        text('#cgpa-stat', data.cgpa);
+
+        const links = { '#github-link': data.github, '#project-github': data.github, '#contact-github': data.github, '#linkedin-link': data.linkedin, '#contact-linkedin': data.linkedin };
+        for (const [id, url] of Object.entries(links)) { const el = doc.querySelector(id); if (el) el.href = url; }
+
+        const orb = doc.querySelector('.orb');
+        if(orb) orb.innerHTML = data.photo ? `<img src="${data.photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">` : `<div class="initials">${esc(data.initials)}</div>`;
+
+        text('.about>p', data.about);
+        text('#fact-based', data.based);
+        text('#fact-focus', data.focus);
+        text('#fact-lang', data.languages);
+        text('#fact-seek', data.seeking);
+
+        text('.edu h3', data.degree);
+        html('.edu p', `${esc(data.institution)}<br>Final CGPA: <strong style="color:var(--text)">${esc(data.cgpa)}</strong> · ${esc(data.degreeDate)}`);
+        pills('.edu .skills', data.coursework);
+
+        html('#skills-grid', (data.skills || []).map(x=>`<article class="card reveal seen" style="grid-column:span 4"><h3>${esc(x.title)}</h3><div class="skills">${x.items.split(',').map(s=>`<span class="pill">${esc(s.trim())}</span>`).join('')}</div></article>`).join(''));
+        html('#experience-timeline', (data.experience || []).map(x=>`<article class="job reveal seen"><div class="jobtop"><div><h3>${esc(x.role)}</h3><div class="company">${esc(x.company)}</div></div><div class="date">${esc(x.date)}</div></div><p>${esc(x.description)}</p></article>`).join(''));
+
+        text('.project h3', data.projectName);
+        text('.project .tag', data.projectTag);
+        text('.project>p', data.projectDescription);
+        html('.project ul', (data.projectBullets||'').split('\n').filter(Boolean).map(x=>`<li>${esc(x)}</li>`).join(''));
+        pills('.project .skills', data.projectSkills);
+        text('.side .metric', data.projectMetric);
+        text('.side p', data.projectMetricText);
+
+        html('#achievements-grid', (data.achievements || []).map((x,i)=>`<article class="card reveal seen"><div class="num">${String(i+1).padStart(2,'0')} / ${esc(x.type)}</div><h3>${esc(x.title)}</h3><p>${esc(x.description)}</p></article>`).join(''));
+
+        text('.contactbox h2', data.contactHeading);
+        text('.contactbox>p', data.contactText);
+
+        doc.querySelectorAll('.editor-custom').forEach(e=>e.remove());
+        const contact = doc.querySelector('.contact');
+        (data.custom || []).forEach(x=>{
+            const s = doc.createElement('section');
+            s.className = 'editor-custom';
+            s.innerHTML = `<div class="wrap"><div class="head reveal seen"><div><div class="kicker">${esc(x.kicker)}</div><h2>${esc(x.title)}</h2></div></div><article class="card reveal seen"><p style="white-space:pre-line">${esc(x.content)}</p></article></div>`;
+            contact?.before(s);
+        });
+
+        state.textContent = 'Unsaved draft...';
+        showAvatar();
+    }
+
+    form.addEventListener('input', e => { syncArray(e.target); apply(); });
+    form.addEventListener('click', e => {
+        const add = e.target.dataset.add, rem = e.target.dataset.remove;
+        if(add) {
+            const blank = {
+                skills: {title:'New category', items:'New skill'},
+                experience: {role:'New role', company:'Company', date:'Date', description:'Describe your work.'},
+                achievements: {type:'HIGHLIGHT', title:'New achievement', description:'Add details.'},
+                custom: {kicker:'More', title:'New section', content:'Add your content here.'}
+            }[add];
+            if (blank) { data[add] = data[add] || []; data[add].push(blank); renderRepeats(); apply(); }
+        }
+        if(rem) { data[rem].splice(+e.target.dataset.i, 1); renderRepeats(); apply(); }
+    });
+
+    document.querySelector('#photo').onchange = e => {
+        const f = e.target.files[0];
+        if(!f) return;
+        if(f.size > 4000000) return alert('Please choose an image under 4 MB.');
+        const r = new FileReader;
+        r.onload = () => { data.photo = r.result; apply(); };
+        r.readAsDataURL(f);
+    };
+    document.querySelector('#clearPhoto').onclick = () => { data.photo = ''; document.querySelector('#photo').value = ''; apply(); };
+
+    document.querySelector('#refresh').onclick = () => frame.contentWindow.location.reload();
+    document.querySelector('#reset').onclick = () => {
+        if(confirm('Discard draft and reload from data.json?')) {
+            localStorage.removeItem('hs-portfolio-draft');
+            init();
+            setTimeout(() => { frame.contentWindow.location.reload(); state.textContent = 'Draft discarded'; }, 200);
+        }
+    };
+
+    document.querySelector('#saveJson').onclick = async () => {
+        values();
+        const jsonStr = JSON.stringify(data, null, 2);
+        try {
+            if (window.showSaveFilePicker) {
+                const handle = await window.showSaveFilePicker({
+                    suggestedName: 'data.json',
+                    types: [{ description: 'JSON File', accept: { 'application/json': ['.json'] } }],
+                });
+                const writable = await handle.createWritable();
+                await writable.write(jsonStr);
+                await writable.close();
+                localStorage.removeItem('hs-portfolio-draft');
+                state.textContent = 'Saved to data.json ✓';
+                setTimeout(() => state.textContent = 'Ready', 2000);
+            } else {
+                const url = URL.createObjectURL(new Blob([jsonStr], { type: 'application/json' }));
+                const a = document.createElement('a'); a.href = url; a.download = 'data.json'; a.click();
+                setTimeout(() => URL.revokeObjectURL(url), 1000);
+                localStorage.removeItem('hs-portfolio-draft');
+                state.textContent = 'Downloaded data.json ✓';
+                setTimeout(() => state.textContent = 'Ready', 2000);
+            }
+        } catch (err) {
+            console.warn('Save cancelled:', err);
+            state.textContent = 'Save cancelled';
+            setTimeout(() => state.textContent = 'Unsaved draft...', 2000);
+        }
+    };
+
+    frame.addEventListener('load', () => setTimeout(apply, 300));
+    frame.addEventListener('error', () => { document.querySelector('.framewrap').innerHTML = '<div class="empty"><div><b>Preview could not load.</b><br>Are you running a local server?</div></div>'; });
+
+    init();
+}
+</script>
+</body>
+</html>
