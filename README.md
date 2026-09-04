@@ -2,20 +2,20 @@
 
 # 🚀 Portfolio Studio
 
-<I'm a Software Development Engineer and Java developer crafting reliable software, intelligent systems, and practical solutions at the intersection of engineering and AI.>[cite: 1]
+<I'm a Software Development Engineer and Java developer crafting reliable software, intelligent systems, and practical solutions at the intersection of engineering and AI.>
 
 [![Live Website](https://img.shields.io/badge/🌐_Visit_My_Website-000000?style=for-the-badge&logo=Vercel&logoColor=white)](https://itz-sawarni.github.io/Portfolio/)
 [![GitHub followers](https://img.shields.io/github/followers/itz-sawarni?style=social)](https://github.com/itz-sawarni)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sawarni007)[cite: 1]
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sawarni007)
 
 </div>
 
 ---
 
 ### 💡 About Me
-* **Role / Focus:** Software Engineering + AI[cite: 1]
-* **Education:** B.Tech in Information Technology from Mizoram University (CGPA: 8.27)[cite: 1]
-* **Core Stack:** Java, Python, C++, SQL, PyTorch, YOLOv8, OpenCV, Linux, Git[cite: 1]
+* **Role / Focus:** Software Engineering + AI
+* **Education:** B.Tech in Information Technology from Mizoram University (CGPA: 8.27)
+* **Core Stack:** Java, Python, C++, SQL, PyTorch, YOLOv8, OpenCV, Linux, Git
 
 ---
 
